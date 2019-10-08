@@ -1,5 +1,6 @@
 import React from "react";
 import AddTransactions from "./Components/AddTransactions";
+import Transactions from "./Components/Transactions";
 
 class App extends React.Component {
   constructor(props) {
@@ -9,10 +10,12 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <AddTransactions />
         <h2>Budget App</h2>
-        <h5>upload csv here</h5>
         <h5>add transactions here</h5>
+        <AddTransactions />
+        <br />
+        <Transactions />
+        <br />
         <div>TRANSACTIONS</div>
         <div>GRAPHS</div>
       </div>
