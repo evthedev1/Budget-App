@@ -1,10 +1,15 @@
 import React from "react";
+import AddTransactions from "./Components/AddTransactions";
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
   render() {
-    const { name } = this.props;
     return (
       <div>
+        <AddTransactions />
         <h2>Budget App</h2>
         <h5>upload csv here</h5>
         <h5>add transactions here</h5>

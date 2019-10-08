@@ -19,6 +19,7 @@ module.exports = {
       budget: category.budget
     });
     console.log("name", category.name);
+    console.log("budget", category.budget);
     return newcategory.save();
   },
 
