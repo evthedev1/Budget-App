@@ -22,8 +22,9 @@ body {
   font-weight: 700;
   background-color: #f2f2f2;
 }
-.txn-wholerow {
-  position: absolute;
+.txn-row-container {
+  /* position: absolute; */
+  flex-direction: row;
 }
 .txn-row {
   width: 100%;

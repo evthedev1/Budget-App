@@ -39,13 +39,14 @@ export default class AddOneTxn extends Component {
       category_name: this.state["category_name"],
       account_name: this.state["account_name"]
     };
-    return axios.post("/transactions/individual", newTransaction).then(err => {
-      if (err) {
-        console.log(err);
-      } else {
-        console.log("individual transaction has been posted");
-      }
-    });
+    return axios
+      .post("/transactions/individual", newTransaction)
+      .then(results => {
+        console.log(results);
+      })
+      .catch(err => {
+        console.log("error posting");
+      });
   }
   render() {
     return (
