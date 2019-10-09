@@ -4,10 +4,10 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
-/* .app {
+.app {
   display: flex;
-  flex-flow: row;
-} */
+  flex-flow: column;
+}
 
 .txn-table {
   display: flex;
@@ -29,13 +29,17 @@ body {
 .txn-row {
   width: 100%;
   display: flex;
-  /* flex-flow: row nowrap; */
-  /* display: inline-block; */
-  float: left;
+  flex-flow: row nowrap;
+}
+.txn-rows {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
-/* .txn-data {
+.txn-data {
   display: flex;
+  width: 100%;
   flex-flow: row nowrap;
   flex-grow: 1;
   flex-basis: 0;
@@ -46,4 +50,5 @@ body {
   min-width: 0px;
   white-space: nowrap;
   border-bottom: 1px solid #d0d0d0;
-} */
+  display: block;
+}
