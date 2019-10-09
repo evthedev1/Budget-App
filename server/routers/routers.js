@@ -4,6 +4,7 @@ const catControllers = require("../controllers/categories.js");
 
 router.post("/transactions/:type", transControllers.addNewTransaction);
 router.get("/transactions", transControllers.getTransactions);
+router.get("/transactions/dateRange", transControllers.getTransactionsByDateRange);
 router.post("/categories", catControllers.addOrUpdateCategory);
 router.get("/categories", catControllers.getCategories);
 router.put("/categories", catControllers.addOrUpdateCategory);
