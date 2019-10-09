@@ -43,6 +43,7 @@ export default class AddOneTxn extends Component {
       .post("/transactions/individual", newTransaction)
       .then(results => {
         console.log(results);
+        this.props.getAllTransactions();
       })
       .catch(err => {
         console.log("error posting");

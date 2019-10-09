@@ -1,8 +1,8 @@
 import React from "react";
-import data from "./exampledata";
+// import data from "./exampledata";
 import TransactionListEntry from "./TransactionListEntry";
 
-export default function TransactionList() {
+export default function TransactionList({ data }) {
   console.log("data", data);
   return (
     <div className="txn">
