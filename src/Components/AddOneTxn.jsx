@@ -51,6 +51,7 @@ export default class AddOneTxn extends Component {
   render() {
     return (
       <div>
+        ADD SINGLE TRANSACTION
         <form onSubmit={this.handleSubmit}>
           <label>
             Date:

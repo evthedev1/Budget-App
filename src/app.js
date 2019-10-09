@@ -19,6 +19,8 @@ class App extends React.Component {
           <br />
           <AddOneTxn />
           <br />
+          <AddCategory />
+          <br />
           <TransactionList />
 
           <br />

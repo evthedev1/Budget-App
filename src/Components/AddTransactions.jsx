@@ -35,7 +35,7 @@ export default function AddTransactions() {
       >
         <div>
           <div>
-            <label htmlFor="file">Choose file to upload</label>
+            <label htmlFor="file">ADD TRANSACTIONS FILE</label>
           </div>
           <input type="file" id="file" name="file" multiple></input>
         </div>
