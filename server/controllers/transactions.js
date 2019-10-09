@@ -2,6 +2,7 @@ const models = require("../models/models.js");
 
 module.exports = {
   addNewTransaction: (req, res) => {
+    console.log("posting");
     if (req.params.type === "file") {
       //map over each transaction
       csv({
