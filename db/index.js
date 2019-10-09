@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost/budget", { useNewUrlParser: true });
+mongoose.connect("mongodb://localhost/budget", { useNewUrlParser: true, useUnifiedTopology: true });
 
 const db = mongoose.connection;
 
