@@ -6,23 +6,26 @@ import TransactionList from "./Components/TransactionList.jsx";
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      categories: []
+    };
   }
   render() {
     return (
       <div>
         <h2>Budget App</h2>
+        <div className="app">
+          <AddTransactions />
+          <br />
+          <AddOneTxn />
+          <br />
+          <TransactionList />
 
-        <AddTransactions />
-        <br />
-        <AddOneTxn />
-        <br />
-        <TransactionList />
-
-        <br />
-        <div>GRAPHS - BY TIME</div>
-        <div>GRAPHS - CATEGORY PIE CHART</div>
-        <div>GRAPH - BUDGET V ACTUAL</div>
+          <br />
+          <div>GRAPHS - BY TIME</div>
+          <div>GRAPHS - CATEGORY PIE CHART</div>
+          <div>GRAPH - BUDGET V ACTUAL</div>
+        </div>
       </div>
     );
   }
