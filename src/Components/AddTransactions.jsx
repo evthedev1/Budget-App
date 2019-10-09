@@ -11,7 +11,10 @@ export default function AddTransactions() {
     read.readAsText(filePath);
     read.onloadend = data => {
       const csv = data.target.result;
-      axios.post("/transactions/file", csv, err => {
+      const sendCsv = {
+        csv: csv
+      };
+      axios.post("/transactions/file", sendCsv, err => {
         if (err) {
           console.log(err);
         } else {
@@ -21,7 +24,7 @@ export default function AddTransactions() {
     };
   };
   return (
-    <div>
+    <div className="txn-row">
       <form
         onSubmit={event => {
           event.preventDefault();

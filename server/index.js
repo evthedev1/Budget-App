@@ -9,9 +9,7 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, "../dist")));
 app.use("/", routers);
 
-// const routes = require("./routers/routers.js");
 
-// app.use("/", routes);
 
 let port = 3000;
 app.listen(port, function() {

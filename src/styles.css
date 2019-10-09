@@ -9,9 +9,6 @@ body {
   flex-flow: row;
 } */
 
-.txn-header {
-}
-
 .txn-table {
   display: flex;
   flex-flow: column nowrap;
@@ -25,12 +22,15 @@ body {
   font-weight: 700;
   background-color: #f2f2f2;
 }
-
+.txn-wholerow {
+  position: absolute;
+}
 .txn-row {
   width: 100%;
   display: flex;
   /* flex-flow: row nowrap; */
-  display: inline-block;
+  /* display: inline-block; */
+  float: left;
 }
 
 /* .txn-data {
