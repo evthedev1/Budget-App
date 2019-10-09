@@ -2,6 +2,7 @@ import React from "react";
 import AddTransactions from "./Components/AddTransactions";
 import AddOneTxn from "./Components/AddOneTxn";
 import TransactionList from "./Components/TransactionList.jsx";
+import AddCategory from "./Components/AddCategory.jsx";
 import axios from "axios";
 
 class App extends React.Component {
@@ -12,6 +13,7 @@ class App extends React.Component {
       categories: []
     };
     this.getAllTransactions = this.getAllTransactions.bind(this);
+    this.getAllCategories = this.getAllCategories.bind(this);
   }
   componentDidMount() {
     this.getAllTransactions();
@@ -20,8 +22,17 @@ class App extends React.Component {
     return axios
       .get("/transactions")
       .then(({ data }) => {
-        // console.log(data);
         this.setState({ transactions: data });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
+  getAllCategories() {
+    return axios
+      .get("/categories")
+      .then(({ data }) => {
+        this.setState({ categories: data });
       })
       .catch(err => {
         console.log(err);
@@ -36,7 +47,7 @@ class App extends React.Component {
           <br />
           <AddOneTxn getAllTransactions={this.getAllTransactions} />
           <br />
-          <AddCategory />
+          <AddCategory getAllCategories={this.getAllCategories} />
           <br />
           <TransactionList data={this.state.transactions} />
 

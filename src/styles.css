@@ -7,6 +7,9 @@ body {
 .app {
   display: flex;
   flex-flow: column;
+  margin: auto;
+  width: 100%;
+  text-align: center;
 }
 
 .txn-table {

@@ -26,7 +26,10 @@ module.exports = {
                   models.getAllCategories().then(currentCategories => {
                     categories.forEach(categoryItem => {
                       if (!currentCategories.includes(categoryItem)) {
-                        models.createOrUpdateCategory({ name: categoryItem, budget: 0 });
+                        models.createOrUpdateCategory({
+                          name: categoryItem,
+                          budget: 0
+                        });
                       }
                     });
                   });
