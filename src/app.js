@@ -1,15 +1,28 @@
 import React from "react";
+import AddTransactions from "./Components/AddTransactions";
+import AddOneTxn from "./Components/AddOneTxn";
+import TransactionList from "./Components/TransactionList.jsx";
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
   render() {
-    const { name } = this.props;
     return (
       <div>
         <h2>Budget App</h2>
-        <h5>upload csv here</h5>
-        <h5>add transactions here</h5>
-        <div>TRANSACTIONS</div>
-        <div>GRAPHS</div>
+
+        <AddTransactions />
+        <br />
+        <AddOneTxn />
+        <br />
+        <TransactionList />
+
+        <br />
+        <div>GRAPHS - BY TIME</div>
+        <div>GRAPHS - CATEGORY PIE CHART</div>
+        <div>GRAPH - BUDGET V ACTUAL</div>
       </div>
     );
   }

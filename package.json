@@ -13,6 +13,9 @@
     "start": "nodemon ./server/index.js"
   },
   "dependencies": {
+    "@material-ui/core": "^4.5.0",
+    "@material-ui/icons": "^4.4.3",
+    "axios": "^0.19.0",
     "csvtojson": "^2.0.10",
     "express": "^4.17.1",
     "mongoose": "^5.7.3",
