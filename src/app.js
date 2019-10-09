@@ -1,6 +1,7 @@
 import React from "react";
 import AddTransactions from "./Components/AddTransactions";
-import Transactions from "./Components/Transactions";
+import AddOneTxn from "./Components/AddOneTxn";
+import TransactionList from "./Components/TransactionList.jsx";
 
 class App extends React.Component {
   constructor(props) {
@@ -11,13 +12,17 @@ class App extends React.Component {
     return (
       <div>
         <h2>Budget App</h2>
-        <h5>add transactions here</h5>
+
         <AddTransactions />
         <br />
-        <Transactions />
+        <AddOneTxn />
         <br />
-        <div>TRANSACTIONS</div>
-        <div>GRAPHS</div>
+        <TransactionList />
+
+        <br />
+        <div>GRAPHS - BY TIME</div>
+        <div>GRAPHS - CATEGORY PIE CHART</div>
+        <div>GRAPH - BUDGET V ACTUAL</div>
       </div>
     );
   }

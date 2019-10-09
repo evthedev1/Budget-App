@@ -1,6 +1,7 @@
 import React, { Component } from "react";
+import axios from "axios";
 
-export default class Transactions extends Component {
+export default class AddOneTxn extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -23,16 +24,27 @@ export default class Transactions extends Component {
     });
   }
   handleSubmit() {
+    event.preventDefault();
+    //async issue?
     if (this.state.amount >= 0) {
       this.setState({ transaction_type: "credit" });
     } else {
       this.setState({ transaction_type: "debit" });
     }
+    const newTransaction = {
+      date: this.state.date,
+      description: this.state.description,
+      amount: this.state.amount,
+      transaction_type: this.state["transaction_type"],
+      category_name: this.state["category_name"],
+      account_name: this.state["account_name"]
+    };
+    axios.post("/");
   }
   render() {
     return (
       <div>
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <label>
             Date:
             <input
@@ -82,6 +94,9 @@ export default class Transactions extends Component {
               onChange={this.handleInputChange}
             />
           </label>
+          <div>
+            <input type="submit" value="Submit" />
+          </div>
         </form>
       </div>
     );
