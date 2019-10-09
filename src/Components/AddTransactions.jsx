@@ -1,22 +1,31 @@
 import React from "react";
+import axios from "axios";
+// import { writeFileSync, readFileSync } from "fs";
 
 export default function AddTransactions() {
-  const handleSubmit = event => {
-    event.preventDefault();
-    console.log("check event target", event.target.value);
-    var file = document.getElementById("file");
-    var request = new XMLHttpRequest();
-    request.open("POST", "http://localhost:3000/transactions/file");
-    request.setRequestHeader("content-type", "application/json");
-    request.send({
-      file: file
-    });
+  const handleSubmit = filePath => {
+    // console.log(e.target.value);
+    // console.log("file here", filePath);
+
+    let read = new FileReader();
+    read.readAsText(filePath);
+    read.onloadend = data => {
+      const csv = data.target.result;
+      axios.post("/transactions/file", csv, err => {
+        if (err) {
+          console.log(err);
+        } else {
+          console.log("upload successful");
+        }
+      });
+    };
   };
   return (
     <div>
       <form
         onSubmit={event => {
-          handleSubmit(event);
+          event.preventDefault();
+          handleSubmit(file.files[0]);
         }}
         method="post"
         encType="multipart/form-data"
@@ -28,13 +37,7 @@ export default function AddTransactions() {
           <input type="file" id="file" name="file" multiple></input>
         </div>
         <div>
-          <button
-          // onSubmit={event => {
-          //   handleSubmit;
-          // }}
-          >
-            Submit
-          </button>
+          <button>Submit</button>
         </div>
       </form>
     </div>

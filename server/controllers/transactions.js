@@ -1,9 +1,11 @@
-const models = require("./models.js");
+const models = require("../models.js");
 
 module.exports = {
   addNewTransaction: (req, res) => {
+    console.log("posting");
     if (req.params.type === "file") {
       //map over each transaction
+      console.log("checking body", req.body);
       let transactions = req.body;
       models
         .addManyTransactions(transactions)
