@@ -2,10 +2,12 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const path = require("path");
-const csv = require("csvtojson");
+const routers = require("./routers/routers.js");
 
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, "../dist")));
+app.use("/", routers);
 
 let port = 3000;
 app.listen(port, function() {

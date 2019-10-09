@@ -1,4 +1,4 @@
-const { Category, Transaction } = require("../db/index.js");
+const { Category, Transaction } = require("../../db/index.js");
 
 module.exports = {
   newTransaction: data => {
@@ -47,5 +47,16 @@ module.exports = {
     return Transaction.insertMany(newTransactions).catch(err => {
       console.log(err);
     });
+  },
+
+  getAllTransactionsByDate: range => {
+    return db.posts
+      .find({ date: { $gte: range.start, $lt: range.end } })
+      .then(data => {
+        return data;
+      })
+      .catch(err => {
+        return err;
+      });
   }
 };
