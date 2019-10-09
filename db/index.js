@@ -5,7 +5,7 @@ const db = mongoose.connection;
 
 db.on("error", console.error.bind(console, "connection error:"));
 db.once("open", function() {
-  // we're connected!
+  console.log("budget database connected");
 });
 
 const transactionsSchema = new mongoose.Schema({
@@ -24,7 +24,7 @@ const categorySchema = new mongoose.Schema({
   budget: Number
 });
 
-const Category = mongoose.model("Category", transactionsSchema);
+const Category = mongoose.model("Category", categorySchema);
 
 module.exports.Category = Category;
 module.exports.Transaction = Transaction;
