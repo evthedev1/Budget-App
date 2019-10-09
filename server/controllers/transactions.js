@@ -1,15 +1,14 @@
 const models = require("../models/models.js");
+const csv = require("csvtojson");
 
 module.exports = {
   addNewTransaction: (req, res) => {
-    console.log("posting");
     if (req.params.type === "file") {
-      //map over each transaction
       csv({
         noheader: false,
         output: "json"
       })
-        .fromString(req.body)
+        .fromString(req.body.csv)
         .then(csvData => {
           models
             .addManyTransactions(csvData)
@@ -27,7 +26,7 @@ module.exports = {
                   models.getAllCategories().then(currentCategories => {
                     categories.forEach(categoryItem => {
                       if (!currentCategories.includes(categoryItem)) {
-                        models.newCategory({ name: categoryItem, budget: 0 });
+                        models.createOrUpdateCategory({ name: categoryItem, budget: 0 });
                       }
                     });
                   });
@@ -42,7 +41,6 @@ module.exports = {
               console.log(err);
               res.sendStatus(500);
             });
-          //call models.newTransaction
         });
     }
     if (req.params.type === "individual") {

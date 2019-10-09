@@ -12,14 +12,15 @@ module.exports = {
     });
     return newtransaction.save();
   },
-
   createOrUpdateCategory: category => {
-    const newcategory = Category({
+    const newcategory = {
       name: category.name,
       budget: category.budget
+    };
+    console.log(newcategory);
+    return Category.findOneAndUpdate({ name: category.name }, category, { upsert: true, useFindAndModify: false }).catch(err => {
+      console.log(err);
     });
-
-    return Category.findOneAndUpdate({ name: category.name }, newcategory, { upsert: true });
   },
 
   getAllTransactions: () => {
@@ -50,8 +51,7 @@ module.exports = {
   },
 
   getAllTransactionsByDate: range => {
-    return db.posts
-      .find({ date: { $gte: range.start, $lt: range.end } })
+    return Transaction.find({ date: { $gte: `${range.start}T00:00:00Z`, $lt: `${range.end}T00:00:00Z` } })
       .then(data => {
         return data;
       })
