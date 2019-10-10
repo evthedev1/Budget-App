@@ -43,6 +43,16 @@ body {
   display: flex;
   flex-flow: row;
 }
+.details {
+  width: 100%;
+  display: flex;
+}
+.categories-table {
+  width: 25%;
+}
+.txn {
+  width: 75%;
+}
 .txn-table {
   display: flex;
   flex-flow: column nowrap;
