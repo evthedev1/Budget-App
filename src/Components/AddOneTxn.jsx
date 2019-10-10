@@ -42,7 +42,7 @@ export default class AddOneTxn extends Component {
     return axios
       .post("/transactions/individual", newTransaction)
       .then(results => {
-        console.log(results);
+        console.log("checking", results);
         this.props.getAllTransactions();
       })
       .catch(err => {
