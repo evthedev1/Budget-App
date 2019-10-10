@@ -38,17 +38,14 @@ module.exports = {
   },
 
   getAllCategories: () => {
-    return (
-      Category.find()
-        // .select("name budget -_id")
-        .then(data => {
-          console.log(data);
-          return data;
-        })
-        .catch(err => {
-          console.log(err);
-        })
-    );
+    return Category.find()
+      .then(data => {
+        console.log(data);
+        return data;
+      })
+      .catch(err => {
+        console.log(err);
+      });
   },
 
   addManyTransactions: newTransactions => {
@@ -69,31 +66,35 @@ module.exports = {
       });
   },
   getChartData: () => {
-    let chartData = {
-      categories: null,
-      budgetAmounts: null,
-      actualAmounts: null
-    };
+    let chartData = [
+      {
+        label: "Budget",
+        values: []
+      },
+      {
+        label: "Actuals",
+        values: []
+      }
+    ];
+    let categories = [];
     return Category.find()
       .select("name budget -_id")
       .then(data => {
-        chartData.categories = data.map(category => {
-          return category.name;
-        });
-        chartData.budgetAmounts = data.map(budget => {
-          return budget.budget;
+        chartData[0].values = data.map(category => {
+          categories.push(category.name);
+          return { x: category.name, y: category.budget };
         });
       })
       .then(() => {
         return Promise.all(
-          chartData.categories.map(category => {
+          categories.map(category => {
             return Transaction.aggregate([
               {
                 $match: { category_name: category }
               },
               {
                 $group: {
-                  _id: null,
+                  _id: category,
                   total: { $sum: "$amount" }
                 }
               }
@@ -103,8 +104,8 @@ module.exports = {
       })
       .then(sums => {
         let totalAmounts = _.flatten(sums);
-        chartData.actualAmounts = totalAmounts.map(actuals => {
-          return actuals.total;
+        chartData[1].values = totalAmounts.map(actuals => {
+          return { x: actuals._id, y: actuals.total };
         });
         return chartData;
       })
