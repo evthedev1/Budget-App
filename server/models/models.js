@@ -1,5 +1,5 @@
 const { Category, Transaction } = require("../../db/index.js");
-
+const _ = require("underscore");
 module.exports = {
   newTransaction: data => {
     const newtransaction = new Transaction({
@@ -36,7 +36,9 @@ module.exports = {
 
   getAllCategories: () => {
     return Category.find()
+      .select("name budget -_id")
       .then(data => {
+        console.log(data);
         return data;
       })
       .catch(err => {
@@ -57,6 +59,50 @@ module.exports = {
       })
       .catch(err => {
         return err;
+      });
+  },
+  getChartData: () => {
+    let chartData = {
+      categories: null,
+      budgetAmounts: null,
+      actualAmounts: null
+    };
+    return Category.find()
+      .select("name budget -_id")
+      .then(data => {
+        chartData.categories = data.map(category => {
+          return category.name;
+        });
+        chartData.budgetAmounts = data.map(budget => {
+          return budget.budget;
+        });
+      })
+      .then(() => {
+        return Promise.all(
+          chartData.categories.map(category => {
+            return Transaction.aggregate([
+              {
+                $match: { category_name: category }
+              },
+              {
+                $group: {
+                  _id: null,
+                  total: { $sum: "$amount" }
+                }
+              }
+            ]);
+          })
+        );
+      })
+      .then(sums => {
+        let totalAmounts = _.flatten(sums);
+        chartData.actualAmounts = totalAmounts.map(actuals => {
+          return actuals.total;
+        });
+        return chartData;
+      })
+      .catch(err => {
+        console.log(err);
       });
   }
 };

@@ -64,7 +64,6 @@ module.exports = {
         res.sendStatus(500);
       });
   },
-
   getTransactionsByDateRange: (req, res) => {
     return models
       .getAllTransactionsByDate(req.body)
@@ -75,5 +74,10 @@ module.exports = {
         console.log(err);
         res.sendStatus(500);
       });
+  },
+  getChart: (req, res) => {
+    return models.getChartData().then(data => {
+      res.send(data).status(200);
+    });
   }
 };
