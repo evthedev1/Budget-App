@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import Category from "./Category.jsx";
 
-export default function Categories({ categories }) {
+export default function Categories({ categories, getTxnForCat }) {
   return (
     <div className="categories-table">
-      CATEGORIES
+      Categories
       <div className="txn-table">
         <div className="txn-header txn-row">
           <div className="txn-data">Name</div>
@@ -12,7 +12,7 @@ export default function Categories({ categories }) {
         </div>
         <div className=" txn-rows">
           {categories.map(item => {
-            return <Category cat={item} />;
+            return <Category getTxnForCat={getTxnForCat} cat={item} />;
           })}
         </div>
       </div>

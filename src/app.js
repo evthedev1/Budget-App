@@ -17,10 +17,18 @@ class App extends React.Component {
     };
     this.getAllTransactions = this.getAllTransactions.bind(this);
     this.getAllCategories = this.getAllCategories.bind(this);
+    this.getTxnForCat = this.getTxnForCat.bind(this);
   }
   componentDidMount() {
     this.getAllTransactions();
     this.getAllCategories();
+  }
+  getTxnForCat(cat) {
+    let newTxn = this.state.transactions.filter(
+      item => item["category_name"] == cat
+    );
+    console.log("check txns", newTxn);
+    this.setState({ transactions: newTxn });
   }
   getAllTransactions() {
     return axios
@@ -47,17 +55,25 @@ class App extends React.Component {
     return (
       <div>
         <div className="app">
-          <h2>Budget App</h2>
+          <h1>Budget App</h1>
           <AddTransactions getAllTransactions={this.getAllTransactions} />
           <br />
-          <AddOneTxn getAllTransactions={this.getAllTransactions} />
-          <br />
-          <AddCategory getAllCategories={this.getAllCategories} />
+          <div className="details">
+            <AddOneTxn getAllTransactions={this.getAllTransactions} />
+            <br />
+            <AddCategory getAllCategories={this.getAllCategories} />
+          </div>
           <br />
           <div className="details">
-            <TransactionList data={this.state.transactions} />
+            <TransactionList
+              data={this.state.transactions}
+              getAllTransactions={this.getAllTransactions}
+            />
 
-            <Categories categories={this.state.categories} />
+            <Categories
+              getTxnForCat={this.getTxnForCat}
+              categories={this.state.categories}
+            />
           </div>
 
           <br />
