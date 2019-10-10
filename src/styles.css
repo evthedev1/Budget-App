@@ -11,11 +11,15 @@ body {
   width: 100%;
   text-align: center;
 }
+.details {
+  width: 100%;
+  display: flex;
+}
 .categories-table {
-  width: 50%;
+  width: 25%;
 }
 .txn {
-  width: 80%;
+  width: 75%;
 }
 .txn-table {
   display: flex;

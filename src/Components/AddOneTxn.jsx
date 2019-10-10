@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
+import Button from "@material-ui/core/Button";
+import { makeStyles } from "@material-ui/core/styles";
+import TextField from "@material-ui/core/TextField";
 
 export default class AddOneTxn extends Component {
   constructor(props) {
@@ -55,8 +58,7 @@ export default class AddOneTxn extends Component {
         ADD SINGLE TRANSACTION
         <form onSubmit={this.handleSubmit}>
           <label>
-            Date:
-            <input
+            <TextField
               name="date"
               type="date"
               value={this.state.date}
@@ -65,8 +67,8 @@ export default class AddOneTxn extends Component {
           </label>
           <br />
           <label>
-            Description:
-            <input
+            <TextField
+              label="Description"
               name="description"
               type="text"
               value={this.state.description}
@@ -75,8 +77,8 @@ export default class AddOneTxn extends Component {
           </label>
           <br />
           <label>
-            Amount:
-            <input
+            <TextField
+              label="$ Amount"
               name="amount"
               type="number"
               value={this.state.amount}
@@ -85,8 +87,8 @@ export default class AddOneTxn extends Component {
           </label>
           <br />
           <label>
-            Category:
-            <input
+            <TextField
+              label="Category"
               name="category_name"
               type="text"
               value={this.state["category_name"]}
@@ -95,8 +97,8 @@ export default class AddOneTxn extends Component {
           </label>
           <br />
           <label>
-            Account:
-            <input
+            <TextField
+              label="Account"
               name="account_name"
               type="text"
               value={this.state["account_name"]}

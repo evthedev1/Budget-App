@@ -52,9 +52,11 @@ class App extends React.Component {
           <br />
           <AddCategory getAllCategories={this.getAllCategories} />
           <br />
-          <TransactionList data={this.state.transactions} />
+          <div className="details">
+            <TransactionList data={this.state.transactions} />
 
-          <Categories categories={this.state.categories} />
+            <Categories categories={this.state.categories} />
+          </div>
           <br />
           <BudgetActualGraph />
           <div>GRAPHS - BY TIME</div>
