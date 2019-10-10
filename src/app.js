@@ -13,15 +13,18 @@ class App extends React.Component {
     super(props);
     this.state = {
       transactions: [],
-      categories: []
+      categories: [],
+      data: null
     };
     this.getAllTransactions = this.getAllTransactions.bind(this);
     this.getAllCategories = this.getAllCategories.bind(this);
     this.getTxnForCat = this.getTxnForCat.bind(this);
+    this.getChartValues = this.getChartValues.bind(this);
   }
   componentDidMount() {
     this.getAllTransactions();
     this.getAllCategories();
+    this.getChartValues();
   }
   getTxnForCat(cat) {
     this.getAllTransactions()
@@ -42,6 +45,7 @@ class App extends React.Component {
       });
   }
   getAllTransactions() {
+    this.getChartValues();
     return axios
       .get("/transactions")
       .then(({ data }) => {
@@ -61,6 +65,13 @@ class App extends React.Component {
         console.log(err);
       });
   }
+  getChartValues() {
+    axios.get("/transactions/chart").then(({ data }) => {
+      console.log("chart data should be here", data);
+      this.setState({ data: data });
+    });
+  }
+
   render() {
     return (
       <div>
@@ -80,7 +91,7 @@ class App extends React.Component {
           </div>
           <br />
           <div className="graphs">
-            <BudgetActualGraph />
+            <BudgetActualGraph data={this.state.data} />
             {/* <PieChart /> */}
           </div>
         </div>

@@ -40,7 +40,9 @@ export default function AddTransactions({ getAllTransactions, getAllCategories }
           <input type="file" id="file" name="file" multiple></input>
         </div>
         <div>
-          <button>Submit</button>
+          <button variant="contained" size="small" color="default">
+            Submit
+          </button>
           <br />
         </div>
       </form>
