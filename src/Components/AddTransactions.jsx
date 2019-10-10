@@ -4,9 +4,6 @@ import axios from "axios";
 
 export default function AddTransactions() {
   const handleSubmit = filePath => {
-    // console.log(e.target.value);
-    // console.log("file here", filePath);
-
     let read = new FileReader();
     read.readAsText(filePath);
     read.onloadend = data => {
@@ -24,7 +21,7 @@ export default function AddTransactions() {
     };
   };
   return (
-    <div className="txn-row">
+    <div>
       <form
         onSubmit={event => {
           event.preventDefault();
@@ -35,7 +32,7 @@ export default function AddTransactions() {
       >
         <div>
           <div>
-            <label htmlFor="file">Choose file to upload</label>
+            <label htmlFor="file">ADD TRANSACTIONS FILE</label>
           </div>
           <input type="file" id="file" name="file" multiple></input>
         </div>
