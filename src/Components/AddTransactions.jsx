@@ -4,7 +4,7 @@ import Button from "@material-ui/core/Button";
 
 // import { writeFileSync, readFileSync } from "fs";
 
-export default function AddTransactions({ getAllTransactions }) {
+export default function AddTransactions({ getAllTransactions, getAllCategories }) {
   const handleSubmit = filePath => {
     let read = new FileReader();
     read.readAsText(filePath);
@@ -17,6 +17,7 @@ export default function AddTransactions({ getAllTransactions }) {
         .post("/transactions/file", sendCsv)
         .then(() => {
           getAllTransactions();
+          getAllCategories();
         })
         .catch(err => {
           console.log(err);
