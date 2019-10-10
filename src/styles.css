@@ -7,6 +7,9 @@ body {
 .app {
   display: flex;
   flex-flow: column;
+  margin: auto;
+  width: 100%;
+  text-align: center;
 }
 
 .txn-table {
@@ -51,4 +54,7 @@ body {
   white-space: nowrap;
   border-bottom: 1px solid #d0d0d0;
   display: block;
+}
+.bar-chart {
+  background-color: #c7d9d9;
 }

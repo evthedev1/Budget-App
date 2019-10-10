@@ -6,7 +6,7 @@ export default function TransactionListEntry({ txn }) {
       <div className="txn-data">{txn.date}</div>
       <div className="txn-data">{txn.description}</div>
       <div className="txn-data">{txn.amount}</div>
-      <div className="txn-data">{txn.category}</div>
+      <div className="txn-data">{txn.category_name}</div>
     </div>
   );
 }

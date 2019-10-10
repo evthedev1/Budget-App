@@ -43,6 +43,7 @@ export default class AddOneTxn extends Component {
       .post("/transactions/individual", newTransaction)
       .then(results => {
         console.log(results);
+        this.props.getAllTransactions();
       })
       .catch(err => {
         console.log("error posting");
@@ -51,6 +52,7 @@ export default class AddOneTxn extends Component {
   render() {
     return (
       <div>
+        ADD SINGLE TRANSACTION
         <form onSubmit={this.handleSubmit}>
           <label>
             Date:
