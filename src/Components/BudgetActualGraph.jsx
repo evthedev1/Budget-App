@@ -17,6 +17,7 @@ export default class BudgetActualGraph extends Component {
 
   getChartValues() {
     axios.get("/transactions/chart").then(({ data }) => {
+      console.log(data);
       this.setState({ data: data });
     });
   }
@@ -25,13 +26,7 @@ export default class BudgetActualGraph extends Component {
     return (
       <div>
         <div id="chart1"></div>
-        <BarChart
-          groupedBars
-          data={this.state.data}
-          width={1000}
-          height={400}
-          margin={{ top: 10, bottom: 50, left: 50, right: 10 }}
-        />
+        <BarChart groupedBars data={this.state.data} width={1000} height={400} margin={{ top: 10, bottom: 50, left: 50, right: 10 }} />
       </div>
     );
   }

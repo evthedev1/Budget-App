@@ -68,6 +68,15 @@ module.exports = {
         return err;
       });
   },
+  getTransactionsByCategory: category => {
+    return Transaction.find({ name: category.name })
+      .then(data => {
+        return data;
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  },
   getChartData: () => {
     let chartData = [
       {
