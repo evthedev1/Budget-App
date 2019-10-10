@@ -52,7 +52,7 @@ export default class AddOneTxn extends Component {
   }
   render() {
     return (
-      <div>
+      <div className="txn">
         ADD SINGLE TRANSACTION
         <form onSubmit={this.handleSubmit}>
           <label>
