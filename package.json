@@ -23,7 +23,6 @@
     "mongoose": "^5.7.3",
     "react": "^16.10.1",
     "react-d3-components": "^0.9.1",
-    "react-dom": "^16.10.1"
     "react-dom": "^16.10.1",
     "underscore": "^1.9.1"
   },

@@ -5,6 +5,7 @@ import TransactionList from "./Components/TransactionList.jsx";
 import AddCategory from "./Components/AddCategory.jsx";
 import axios from "axios";
 import BudgetActualGraph from "./Components/BudgetActualGraph";
+import Categories from "./Components/Categories.jsx";
 
 class App extends React.Component {
   constructor(props) {
@@ -18,6 +19,7 @@ class App extends React.Component {
   }
   componentDidMount() {
     this.getAllTransactions();
+    this.getAllCategories();
   }
   getAllTransactions() {
     return axios
@@ -51,7 +53,8 @@ class App extends React.Component {
           <AddCategory getAllCategories={this.getAllCategories} />
           <br />
           <TransactionList data={this.state.transactions} />
-          <div>CATEGORIES</div>
+
+          <Categories categories={this.state.categories} />
           <br />
           <BudgetActualGraph />
           <div>GRAPHS - BY TIME</div>

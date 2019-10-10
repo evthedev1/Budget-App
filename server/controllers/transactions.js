@@ -39,7 +39,9 @@ module.exports = {
                   res.sendStatus(500);
                 });
             })
-            .then(res.sendStatus(201))
+            .then(() => {
+              res.sendStatus(201);
+            })
             .catch(err => {
               console.log(err);
               res.sendStatus(500);
@@ -50,7 +52,9 @@ module.exports = {
       //format should be {date: description: amount: transaction_type: category_name: account_name:}
       models
         .newTransaction(req.body)
-        .then(res.sendStatus(201))
+        .then(() => {
+          res.sendStatus(201);
+        })
         .catch(err => {
           console.log(err);
           res.sendStatus(500);

@@ -11,7 +11,12 @@ body {
   width: 100%;
   text-align: center;
 }
-
+.categories-table {
+  width: 50%;
+}
+.txn {
+  width: 80%;
+}
 .txn-table {
   display: flex;
   flex-flow: column nowrap;

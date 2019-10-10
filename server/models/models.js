@@ -18,7 +18,10 @@ module.exports = {
       budget: category.budget
     };
     console.log(newcategory);
-    return Category.findOneAndUpdate({ name: category.name }, category, { upsert: true, useFindAndModify: false }).catch(err => {
+    return Category.findOneAndUpdate({ name: category.name }, category, {
+      upsert: true,
+      useFindAndModify: false
+    }).catch(err => {
       console.log(err);
     });
   },
@@ -35,15 +38,17 @@ module.exports = {
   },
 
   getAllCategories: () => {
-    return Category.find()
-      .select("name budget -_id")
-      .then(data => {
-        console.log(data);
-        return data;
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    return (
+      Category.find()
+        // .select("name budget -_id")
+        .then(data => {
+          console.log(data);
+          return data;
+        })
+        .catch(err => {
+          console.log(err);
+        })
+    );
   },
 
   addManyTransactions: newTransactions => {
@@ -53,7 +58,9 @@ module.exports = {
   },
 
   getAllTransactionsByDate: range => {
-    return Transaction.find({ date: { $gte: `${range.start}T00:00:00Z`, $lt: `${range.end}T00:00:00Z` } })
+    return Transaction.find({
+      date: { $gte: `${range.start}T00:00:00Z`, $lt: `${range.end}T00:00:00Z` }
+    })
       .then(data => {
         return data;
       })
