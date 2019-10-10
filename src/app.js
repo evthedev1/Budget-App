@@ -55,7 +55,7 @@ class App extends React.Component {
     return (
       <div>
         <div className="app">
-          <h2>Budget App</h2>
+          <h1>Budget App</h1>
           <AddTransactions getAllTransactions={this.getAllTransactions} />
           <br />
           <div className="details">
