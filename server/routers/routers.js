@@ -7,6 +7,7 @@ router.post("/transactions/:type", transControllers.addNewTransaction);
 router.get("/transactions", transControllers.getTransactions);
 router.get("/transactions/chart", transControllers.getChart);
 router.get("/transactions/dateRange", transControllers.getTransactionsByDateRange);
+router.get("/transactions/category", transControllers.getTransactionsByCategory);
 
 // Category Routers
 router.get("/categories", catControllers.getCategories);

@@ -24,9 +24,22 @@ class App extends React.Component {
     this.getAllCategories();
   }
   getTxnForCat(cat) {
-    let newTxn = this.state.transactions.filter(item => item["category_name"] == cat);
-    console.log("check txns", newTxn);
-    this.setState({ transactions: newTxn });
+    this.getAllTransactions()
+      .then(() => {
+        let txn = [];
+        this.state.transactions.forEach(trans => {
+          if (trans.category_name === cat) {
+            txn.push(trans);
+          }
+        });
+        return txn;
+      })
+      .then(filteredValues => {
+        this.setState({ transactions: filteredValues });
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }
   getAllTransactions() {
     return axios
@@ -53,7 +66,7 @@ class App extends React.Component {
       <div>
         <div className="app">
           <h1>Budget App</h1>
-          <AddTransactions getAllTransactions={this.getAllTransactions} />
+          <AddTransactions getAllTransactions={this.getAllTransactions} getAllCategories={this.getAllCategories} />
           <br />
           <div className="details">
             <AddOneTxn getAllTransactions={this.getAllTransactions} />
@@ -62,13 +75,13 @@ class App extends React.Component {
           </div>
           <br />
           <div className="details">
-            <TransactionList data={this.state.transactions} />
+            <TransactionList data={this.state.transactions} getAllTransactions={this.getAllTransactions} />
             <Categories getTxnForCat={this.getTxnForCat} categories={this.state.categories} />
           </div>
           <br />
           <div className="graphs">
             <BudgetActualGraph />
-            <PieChart />
+            {/* <PieChart /> */}
           </div>
         </div>
       </div>

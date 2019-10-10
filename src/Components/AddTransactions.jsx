@@ -4,7 +4,7 @@ import Button from "@material-ui/core/Button";
 
 // import { writeFileSync, readFileSync } from "fs";
 
-export default function AddTransactions({ getAllTransactions }) {
+export default function AddTransactions({ getAllTransactions, getAllCategories }) {
   const handleSubmit = filePath => {
     let read = new FileReader();
     read.readAsText(filePath);
@@ -17,6 +17,7 @@ export default function AddTransactions({ getAllTransactions }) {
         .post("/transactions/file", sendCsv)
         .then(() => {
           getAllTransactions();
+          getAllCategories();
         })
         .catch(err => {
           console.log(err);
@@ -39,9 +40,7 @@ export default function AddTransactions({ getAllTransactions }) {
           <input type="file" id="file" name="file" multiple></input>
         </div>
         <div>
-          <Button variant="contained" size="small" color="default">
-            Submit
-          </Button>
+          <button>Submit</button>
           <br />
         </div>
       </form>

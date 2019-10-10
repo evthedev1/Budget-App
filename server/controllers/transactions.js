@@ -88,6 +88,7 @@ module.exports = {
     });
   },
   getTransactionsByCategory: (req, res) => {
+    console.log(req.body);
     return models.getTransactionsByCategory(req.body).then(data => {
       res.send(data).status(200);
     });
