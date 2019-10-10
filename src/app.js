@@ -63,7 +63,10 @@ class App extends React.Component {
           </div>
           <br />
           <div className="details">
-            <TransactionList data={this.state.transactions} />
+            <TransactionList
+              data={this.state.transactions}
+              getAllTransactions={this.getAllTransactions}
+            />
 
             <Categories
               getTxnForCat={this.getTxnForCat}
