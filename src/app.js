@@ -5,6 +5,7 @@ import TransactionList from "./Components/TransactionList.jsx";
 import AddCategory from "./Components/AddCategory.jsx";
 import axios from "axios";
 import BudgetActualGraph from "./Components/BudgetActualGraph";
+import PieChart from "./Components/PieChart.jsx";
 import Categories from "./Components/Categories.jsx";
 
 class App extends React.Component {
@@ -33,6 +34,7 @@ class App extends React.Component {
     return axios
       .get("/transactions")
       .then(({ data }) => {
+        console.log(data);
         this.setState({ transactions: data });
       })
       .catch(err => {
@@ -75,9 +77,10 @@ class App extends React.Component {
           </div>
 
           <br />
-          <BudgetActualGraph />
-          <div>GRAPHS - BY TIME</div>
-          <div>GRAPHS - CATEGORY PIE CHART</div>
+          <div className="graphs">
+            <BudgetActualGraph />
+            <PieChart />
+          </div>
         </div>
       </div>
     );

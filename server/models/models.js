@@ -17,7 +17,6 @@ module.exports = {
       name: category.name,
       budget: category.budget
     };
-    console.log(newcategory);
     return Category.findOneAndUpdate({ name: category.name }, category, { upsert: true, useFindAndModify: false }).catch(err => {
       console.log(err);
     });
@@ -27,7 +26,17 @@ module.exports = {
     //get transactions
     return Transaction.find()
       .then(data => {
-        return data;
+        let allTransactions = data.map(eachTransaction => {
+          return {
+            date: eachTransaction.date.toISOString().substring(0, 10),
+            description: eachTransaction.description,
+            amount: `$  ${eachTransaction.amount.toFixed(2)}`,
+            transaction_type: eachTransaction.transaction_type,
+            category_name: eachTransaction.category_name,
+            account_name: eachTransaction.account_name
+          };
+        });
+        return allTransactions;
       })
       .catch(err => {
         console.log(err);
@@ -37,7 +46,6 @@ module.exports = {
   getAllCategories: () => {
     return Category.find()
       .then(data => {
-        console.log(data);
         return data;
       })
       .catch(err => {

@@ -1,5 +1,7 @@
 import React from "react";
 import axios from "axios";
+import Button from "@material-ui/core/Button";
+
 // import { writeFileSync, readFileSync } from "fs";
 
 export default function AddTransactions({ getAllTransactions }) {
@@ -30,15 +32,17 @@ export default function AddTransactions({ getAllTransactions }) {
         }}
         method="post"
         encType="multipart/form-data"
+        className="addfile"
       >
         <div>
-          <div>
-            <label htmlFor="file">ADD TRANSACTIONS FILE</label>
-          </div>
+          <label htmlFor="file">ADD TRANSACTIONS FILE</label>
           <input type="file" id="file" name="file" multiple></input>
         </div>
         <div>
-          <button>Submit</button>
+          <Button variant="contained" size="small" color="default">
+            Submit
+          </Button>
+          <br />
         </div>
       </form>
     </div>
