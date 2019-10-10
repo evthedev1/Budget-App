@@ -50,59 +50,35 @@ export default class AddOneTxn extends Component {
         console.log("error posting");
       });
   }
+
   render() {
     return (
       <div>
         ADD SINGLE TRANSACTION
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit} className="single-add">
           <label>
             Date:
-            <input
-              name="date"
-              type="date"
-              value={this.state.date}
-              onChange={this.handleInputChange}
-            />
+            <input name="date" type="date" value={this.state.date} onChange={this.handleInputChange} required />
           </label>
           <br />
           <label>
             Description:
-            <input
-              name="description"
-              type="text"
-              value={this.state.description}
-              onChange={this.handleInputChange}
-            />
+            <input name="description" type="text" value={this.state.description} onChange={this.handleInputChange} required />
           </label>
           <br />
           <label>
             Amount:
-            <input
-              name="amount"
-              type="number"
-              value={this.state.amount}
-              onChange={this.handleInputChange}
-            />
+            <input name="amount" type="number" value={this.state.amount} onChange={this.handleInputChange} required />
           </label>
           <br />
           <label>
             Category:
-            <input
-              name="category_name"
-              type="text"
-              value={this.state["category_name"]}
-              onChange={this.handleInputChange}
-            />
+            <input name="category_name" type="text" value={this.state["category_name"]} onChange={this.handleInputChange} required />
           </label>
           <br />
           <label>
             Account:
-            <input
-              name="account_name"
-              type="text"
-              value={this.state["account_name"]}
-              onChange={this.handleInputChange}
-            />
+            <input name="account_name" type="text" value={this.state["account_name"]} onChange={this.handleInputChange} required />
           </label>
           <div>
             <input type="submit" value="Submit" />
