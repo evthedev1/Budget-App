@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Axios from "axios";
+import TextField from "@material-ui/core/TextField";
 
 export default class AddCategory extends Component {
   constructor(props) {
@@ -38,8 +39,8 @@ export default class AddCategory extends Component {
       <form onSubmit={this.handleSubmit}>
         <div>ADD CATEGORY</div>
         <label>
-          Name:
-          <input
+          <TextField
+            label="Name"
             name="name"
             type="text"
             value={this.state.name}
@@ -48,15 +49,16 @@ export default class AddCategory extends Component {
         </label>
         <br />
         <label>
-          Budget:
-          <input
+          <TextField
+            label="Budget"
             name="budget"
             type="number"
             value={this.state.budget}
             onChange={this.handleInputChange}
           />
         </label>
-         <input type="submit" value="Submit" />
+        <br />
+        <input type="submit" value="Submit" />
       </form>
     );
   }

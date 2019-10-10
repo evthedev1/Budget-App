@@ -44,19 +44,18 @@ class App extends React.Component {
       <div>
         <div className="app">
           <h2>Budget App</h2>
-          <AddTransactions />
+          <AddTransactions getAllTransactions={this.getAllTransactions} />
           <br />
           <AddOneTxn getAllTransactions={this.getAllTransactions} />
           <br />
           <AddCategory getAllCategories={this.getAllCategories} />
           <br />
           <TransactionList data={this.state.transactions} />
-
+          <div>CATEGORIES</div>
           <br />
-          <BudgetActualGraph/>
+          <BudgetActualGraph />
           <div>GRAPHS - BY TIME</div>
           <div>GRAPHS - CATEGORY PIE CHART</div>
-          <div>GRAPH - BUDGET V ACTUAL</div>
         </div>
       </div>
     );

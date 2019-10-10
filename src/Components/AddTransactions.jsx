@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 // import { writeFileSync, readFileSync } from "fs";
 
-export default function AddTransactions() {
+export default function AddTransactions({ getAllTransactions }) {
   const handleSubmit = filePath => {
     let read = new FileReader();
     read.readAsText(filePath);
@@ -11,13 +11,14 @@ export default function AddTransactions() {
       const sendCsv = {
         csv: csv
       };
-      axios.post("/transactions/file", sendCsv, err => {
-        if (err) {
+      axios
+        .post("/transactions/file", sendCsv)
+        .then(() => {
+          getAllTransactions();
+        })
+        .catch(err => {
           console.log(err);
-        } else {
-          console.log("upload successful");
-        }
-      });
+        });
     };
   };
   return (
