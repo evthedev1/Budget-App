@@ -16,7 +16,7 @@ export default function TransactionList({ data }) {
         </div>
         <div className=" txn-rows">
           {data.map(txn => {
-            return <TransactionListEntry txn={txn} />;
+            return <TransactionListEntry key={txn["_id"]} txn={txn} />;
           })}
         </div>
       </div>

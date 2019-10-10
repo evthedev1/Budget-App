@@ -4,6 +4,7 @@ import AddOneTxn from "./Components/AddOneTxn";
 import TransactionList from "./Components/TransactionList.jsx";
 import AddCategory from "./Components/AddCategory.jsx";
 import axios from "axios";
+import BudgetActualGraph from "./Components/BudgetActualGraph";
 
 class App extends React.Component {
   constructor(props) {
@@ -41,8 +42,8 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h2>Budget App</h2>
         <div className="app">
+          <h2>Budget App</h2>
           <AddTransactions />
           <br />
           <AddOneTxn getAllTransactions={this.getAllTransactions} />
@@ -52,6 +53,7 @@ class App extends React.Component {
           <TransactionList data={this.state.transactions} />
 
           <br />
+          <BudgetActualGraph/>
           <div>GRAPHS - BY TIME</div>
           <div>GRAPHS - CATEGORY PIE CHART</div>
           <div>GRAPH - BUDGET V ACTUAL</div>
