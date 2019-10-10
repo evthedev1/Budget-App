@@ -86,5 +86,10 @@ module.exports = {
     return models.getChartData().then(data => {
       res.send(data).status(200);
     });
+  },
+  getTransactionsByCategory: (req, res) => {
+    return models.getTransactionsByCategory(req.body).then(data => {
+      res.send(data).status(200);
+    });
   }
 };

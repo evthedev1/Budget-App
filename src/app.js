@@ -26,7 +26,6 @@ class App extends React.Component {
     return axios
       .get("/transactions")
       .then(({ data }) => {
-        console.log(data);
         this.setState({ transactions: data });
       })
       .catch(err => {
@@ -56,10 +55,8 @@ class App extends React.Component {
           <br />
           <div className="details">
             <TransactionList data={this.state.transactions} />
-
             <Categories categories={this.state.categories} />
           </div>
-
           <br />
           <div className="graphs">
             <BudgetActualGraph />

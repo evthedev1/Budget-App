@@ -1,5 +1,4 @@
 import React from "react";
-// import data from "./exampledata";
 import TransactionListEntry from "./TransactionListEntry";
 
 export default function TransactionList({ data }) {
