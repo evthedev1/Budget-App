@@ -15,10 +15,10 @@ export default function TransactionList({ data, getAllTransactions }) {
         type="submit"
         value="Show All Transactions"
       /> */}
-      <button onClick={handleClick} type="button">
-        Show All Transactions
-      </button>
       <div className="txn-table">
+        <button onClick={handleClick} type="button">
+          Show All Transactions
+        </button>
         <div className="txn-header txn-row">
           <div className="txn-data">Date</div>
           <div className="txn-data">Description</div>

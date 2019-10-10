@@ -33,7 +33,7 @@ export default class AddCategory extends Component {
     this.setState({
       [name]: value
     });
-  }
+  } 
   render() {
     return (
       <form className="txn" onSubmit={this.handleSubmit}>

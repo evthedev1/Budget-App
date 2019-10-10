@@ -58,28 +58,61 @@ export default class AddOneTxn extends Component {
         <form onSubmit={this.handleSubmit} className="single-add">
           <label>
             Date:
-            <input name="date" type="date" value={this.state.date} onChange={this.handleInputChange} required />
+            <input
+              name="date"
+              type="date"
+              value={this.state.date}
+              onChange={this.handleInputChange}
+              required
+            />
           </label>
           <br />
           <label>
             Description:
-            <input name="description" type="text" value={this.state.description} onChange={this.handleInputChange} required />
+            <input
+              name="description"
+              type="text"
+              value={this.state.description}
+              onChange={this.handleInputChange}
+              required
+            />
           </label>
           <br />
           <label>
             Amount:
-            <input name="amount" type="number" value={this.state.amount} onChange={this.handleInputChange} required />
+            <input
+              name="amount"
+              type="number"
+              value={this.state.amount}
+              onChange={this.handleInputChange}
+              required
+            />
           </label>
           <br />
           <label>
             Category:
-            <input name="category_name" type="text" value={this.state["category_name"]} onChange={this.handleInputChange} required />
+            <input
+              name="category_name"
+              type="text"
+              value={this.state["category_name"]}
+              onChange={this.handleInputChange}
+              required
+            />
           </label>
           <br />
           <label>
             Account:
-            <input name="account_name" type="text" value={this.state["account_name"]} onChange={this.handleInputChange} required />
+            <input
+              name="account_name"
+              type="text"
+              value={this.state["account_name"]}
+              onChange={this.handleInputChange}
+              required
+            />
           </label>
+          {/* <button className="txn-button" type="submit" value="Submit">
+            submit
+          </button> */}
           <div>
             <input type="submit" value="Submit" />
           </div>

@@ -17,6 +17,23 @@ body {
   flex-flow: row;
 } */
 
+button {
+  float: right;
+  padding: 8px 12px;
+  margin: 20px 0px 20px 0px;
+  border: 2px solid rgb(51, 51, 138);
+  background: 0;
+  color: black;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+button:hover {
+  background: rgb(51, 51, 138);
+  color: #fff;
+  border: 2px solid rgb(51, 51, 138);
+}
+
 .addfile input {
   display: block;
   width: 20%;
@@ -52,6 +69,9 @@ body {
 }
 .txn {
   width: 75%;
+}
+.txn-button {
+  width: 40%;
 }
 .txn-table {
   display: flex;
