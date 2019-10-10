@@ -12,6 +12,37 @@ body {
   text-align: center;
 }
 
+/* .addfile {
+  display: flex;
+  flex-flow: row;
+} */
+
+.addfile input {
+  display: block;
+  width: 20%;
+  padding: 10px;
+  box-sizing: border-box;
+  background: none;
+  outline: none;
+  resize: none;
+  border: 0;
+  font-family: "Montserrat", sans-serif;
+  transition: all 0.3s;
+  border-bottom: 2px solid #d0d0d0;
+}
+
+.addfile input:focus {
+  border-bottom: 2px solid #00a07b;
+}
+
+.addfile button {
+  float: left;
+  margin: 10px;
+}
+.addfile label {
+  display: flex;
+  flex-flow: row;
+}
 .txn-table {
   display: flex;
   flex-flow: column nowrap;
@@ -57,4 +88,9 @@ body {
 }
 .bar-chart {
   background-color: #c7d9d9;
+}
+
+.graphs {
+  display: flex;
+  flex-flow: row;
 }
