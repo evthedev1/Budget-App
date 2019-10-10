@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import * as d3 from "d3";
+
 import { BarChart } from "react-d3-components";
 import axios from "axios";
 
@@ -17,6 +17,7 @@ export default class BudgetActualGraph extends Component {
 
   getChartValues() {
     axios.get("/transactions/chart").then(({ data }) => {
+      console.log(data);
       this.setState({ data: data });
     });
   }

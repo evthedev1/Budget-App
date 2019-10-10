@@ -36,7 +36,7 @@ export default class AddCategory extends Component {
   }
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form className="txn" onSubmit={this.handleSubmit}>
         <div>ADD CATEGORY</div>
         <label>
           <TextField
