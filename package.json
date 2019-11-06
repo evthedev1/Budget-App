@@ -24,7 +24,7 @@
     "express": "^4.17.1",
     "fs": "0.0.1-security",
     "lodash": "^4.17.15",
-    "mongoose": "^5.7.3",
+    "mongoose": "^5.7.5",
     "react": "^16.10.1",
     "react-d3-components": "^0.9.1",
     "react-d3-pie-chart": "^1.0.3",
