@@ -21,7 +21,7 @@
     "csvtojson": "^2.0.10",
     "d3": "^5.12.0",
     "date-fns": "^2.0.0-beta.5",
-    "express": "^4.17.1",
+    "express": "^4.18.2",
     "fs": "0.0.1-security",
     "lodash": "^4.17.15",
     "mongoose": "^5.7.3",
